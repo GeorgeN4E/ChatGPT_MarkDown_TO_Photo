@@ -22,8 +22,8 @@ def convert_equations(content):
     return pattern.sub(r'$$\1$$', part1)
 
 def main():
-    input_file = "curs1-6.md"
-    output_file = "outcurs1-6.md"
+    input_file = "Content/curs1-6.md"
+    output_file = "Content/outcurs1-6.md"
     
     with open(input_file, 'r', encoding='utf-8') as f:
         content = f.read()
