@@ -1,5 +1,13 @@
 import cv2
 import os
+from PIL import Image
+
+def remove_metadata(image_path):
+    image = Image.open(image_path)
+    data = list(image.getdata())
+    new_image = Image.new(image.mode, image.size)
+    new_image.putdata(data)
+    return new_image
 
 def select_crop_area(image_path, output_folder):
     img = cv2.imread(image_path)
@@ -14,7 +22,14 @@ def select_crop_area(image_path, output_folder):
             cropped_img = clone[:original_y, :]
             output_path = os.path.join(output_folder, os.path.basename(image_path))
             cv2.imwrite(output_path, cropped_img)
-            print(f"Cropped image saved: {output_path}")
+            
+            """
+            # Remove metadata
+            clean_image = remove_metadata(output_path)
+            clean_image.save(output_path)
+            """
+            
+            print(f"Cropped image saved without metadata: {output_path}")
             cv2.destroyAllWindows()
     
     cv2.imshow("Select Crop Point", resized_img)
