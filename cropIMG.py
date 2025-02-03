@@ -13,7 +13,7 @@ def select_crop_area(image_path, output_folder):
     img = cv2.imread(image_path)
     clone = img.copy()
     height, width = img.shape[:2]
-    scale_factor = 0.3  # Adjust this value as needed
+    scale_factor = 0.1  # Adjust this value as needed
     resized_img = cv2.resize(img, (int(width * scale_factor), int(height * scale_factor)))
     
     def mouse_callback(event, x, y, flags, param):
@@ -47,6 +47,6 @@ def process_images(input_folder, output_folder):
             select_crop_area(image_path, output_folder)
 
 if __name__ == "__main__":
-    input_folder = "Photos"  # Change this to your input folder
-    output_folder = "cropped_images"  # Change this to your output folder
+    input_folder = "Content/extracted_img"  # Change this to your input folder
+    output_folder = "Content/croped_extracted_images"  # Change this to your output folder
     process_images(input_folder, output_folder)
