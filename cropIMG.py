@@ -68,5 +68,5 @@ def process_images(input_folder, output_folder):
 
 if __name__ == "__main__":
     input_folder = "Content/extracted_img"         # Change this to your input folder
-    output_folder = "Content/croped_extracted_images"  # Change this to your output folder
+    output_folder = "Content/cropped_extracted_images"  # Change this to your output folder
     process_images(input_folder, output_folder)
